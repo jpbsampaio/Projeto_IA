@@ -59,3 +59,17 @@ plt.show()
 plt.figure(figsize=(20,10))  # Ajuste o tamanho da figura para melhor visualização
 plot_tree(clf, filled=True, feature_names=columns[:-1], class_names=["Not Spam", "Spam"], rounded=True, fontsize=8)
 plt.show()
+
+#visualizar o grafico de pizza
+labels = ["Not Spam", "Spam"]
+sizes = [sum(y_test == 0), sum(y_test == 1)]
+colors = ['skyblue', 'lightcoral']
+explode = (0.1, 0)  # explode 1st slice (Not Spam)
+
+fig1, ax1 = plt.subplots()
+ax1.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%',
+        shadow=True, startangle=90)
+ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+
+plt.title('Distribution of Not Spam and Spam in Test Set')
+plt.show()
